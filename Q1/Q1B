@@ -1,0 +1,51 @@
+import java.util.Scanner;
+public class IT24101148Lab7Q1B {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+       
+        for (int i = 1; i <= 3; i++) {
+            System.out.printf("Enter marks for 4 subjects for Student %d (separated by space): ", i);
+            String input = scanner.nextLine();
+            String[] marks = input.split(" ");
+
+          
+            if (marks.length != 4) {
+                System.out.println("Please enter exactly four marks.");
+                i--; 
+                continue;
+            }
+
+          
+            int subject1 = Integer.parseInt(marks[0]);
+            int subject2 = Integer.parseInt(marks[1]);
+            int subject3 = Integer.parseInt(marks[2]);
+            int subject4 = Integer.parseInt(marks[3]);
+
+          
+            int totalMarks = subject1 + subject2 + subject3 + subject4;
+            double average = totalMarks / 4.0;
+
+         
+            String grade;
+            if (average >= 75 && average <= 100) {
+                grade = "Distinction";
+            } else if (average >= 50 && average < 75) {
+                grade = "Credit";
+            } else if (average >= 0 && average < 50) {
+                grade = "Fail";
+            } else {
+                grade = "Invalid marks entered.";
+            }
+
+         
+            System.out.printf("Student %d:\n", i);
+            System.out.printf("Total Marks: %d\n", totalMarks);
+            System.out.printf("Average Marks: %.2f\n", average);
+            System.out.println("Grade: " + grade);
+            System.out.println(); 
+        }
+
+        scanner.close();
+    }
+}
